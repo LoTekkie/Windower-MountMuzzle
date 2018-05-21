@@ -33,48 +33,48 @@ function ucFirst(str)
 end
 
 function buildHelpCommandEntry(command, description)
-	local short_name = "mm":color(colors.primary)
-	local command = command:color(colors.secondary)
-	local sep = "=>":color(colors.primary)
-	local description = description:color(colors.info)
-	return "%s %s %s %s":format(short_name, command, sep, description)
+    local short_name = "mm":color(colors.primary)
+    local command = command:color(colors.secondary)
+    local sep = "=>":color(colors.primary)
+    local description = description:color(colors.info)
+    return "%s %s %s %s":format(short_name, command, sep, description)
 end
 
 function buildHelpTypeEntry(name, description)
-	local name = name:color(colors.secondary)
-	local sep = "=>":color(colors.primary)
-	local description = description:color(colors.info)
-	return "%s %s %s":format(name, sep, description)
+    local name = name:color(colors.secondary)
+    local sep = "=>":color(colors.primary)
+    local description = description:color(colors.info)
+    return "%s %s %s":format(name, sep, description)
 end
 
 function buildHelpTitle(context)
-	local context = context:color(colors.danger)
-	return "%s Help: %s":color(colors.primary):format(_addon.name, context)
+    local context = context:color(colors.danger)
+    return "%s Help: %s":color(colors.primary):format(_addon.name, context)
 end
 
 function buildHelpSeperator(character, count)
-	local sep = ''
-	for i = 1, count do
-		sep = sep .. character
-	end
-	return sep:color(colors.warn)
+    local sep = ''
+    for i = 1, count do
+        sep = sep .. character
+    end
+    return sep:color(colors.warn)
 end
 
 function buildCommandResponse(message, success)
-	local response_template = '%s: %s'
-	local response_color = colors.success
-	local response_type = 'Success'
-	
-	if not success then
-		response_type = 'Error'
-		response_color = colors.danger
-	end	
-	return response_template:format(response_type:color(response_color), message)
+    local response_template = '%s: %s'
+    local response_color = colors.success
+    local response_type = 'Success'
+
+    if not success then
+        response_type = 'Error'
+        response_color = colors.danger
+    end
+    return response_template:format(response_type:color(response_color), message)
 end
 
 function displayResponse(response, color)
-	color = color or colors.info
-	windower.add_to_chat(color, response)
-	windower.console.write(response:strip_colors())
+    color = color or colors.info
+    windower.add_to_chat(color, response)
+    windower.console.write(response:strip_colors())
 end
 

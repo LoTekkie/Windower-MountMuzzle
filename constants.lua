@@ -27,66 +27,66 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ]]
 
 packets = {
-	inbound = {
-		music_change = {
-			id = 0x05F 
-		}
-	},
-	outbound = {
-		action = {
-			id = 0x1A,
-			categories = {
-				mount = 0x1A,
-				unmount = 0x12
-			},
-			params = {
-				mount = 0x04,
-				unmount = 0x00
-			}
-		}
-	},
+    inbound = {
+        music_change = {
+            id = 0x05F
+        }
+    },
+    outbound = {
+        action = {
+            id = 0x1A,
+            categories = {
+                mount = 0x1A,
+                unmount = 0x12
+            },
+            params = {
+                mount = 0x04,
+                unmount = 0x00
+            }
+        }
+    },
 }
 
 music = {
-	songs = {
-		silent = 90,
-		normal = 84,
-		choco = 212,
-		zone = 0,
-	},
-	types = {
-		mount = 4
-	}
+    songs = {
+        silent = 90,
+        normal = 84,
+        choco = 212,
+        zone = 0,
+    },
+    types = {
+        mount = 4
+    }
 }
 
 colors = {
-	primary = 200,
-	secondary = 207,
-	info = 0,
-	warn = 140,
-	danger = 167, 
-	success = 158
+    primary = 200,
+    secondary = 207,
+    info = 0,
+    warn = 140,
+    danger = 167,
+    success = 158
 }
 
 muzzles = {
-	silent = {
-		name = 'silent',
-		song = music.songs.silent,
-		description = ''
-	},
-	normal = {
-		name = 'normal',
-		song = music.songs.normal,
-		description = ''
-	},
-	choco = {
-		name = 'choco',
-		song = music.songs.choco,
-		description = ''
-	},
-	zone = {
-		name = 'zone',
-		song = music.songs.zone,
-		description = ''
-	}
+    silent = {
+        name = 'silent',
+        song = music.songs.silent,
+        description = ''
+    },
+    normal = {
+        name = 'normal',
+        song = music.songs.normal,
+        description = ''
+    },
+    choco = {
+        name = 'choco',
+        song = music.songs.choco,
+        description = ''
+    },
+    zone = {
+        name = 'zone',
+        song = music.songs.zone,
+        description = ''
+    }
 }

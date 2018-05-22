@@ -68,8 +68,8 @@ Reloads the Mount Muzzle addon. Below are the equivalent ways of calling the com
     //mountmuzzle reload
     //muzzle reload
     //mm reload
-___
 
+___
 ### Change Log
 
 **v0.9.1**
@@ -81,12 +81,14 @@ ___
 **v0.9.0**
 - Initial release
 
+___
 ### Known Issues
 
 **v0.9.1**
 - **Issue:** If Mount Muzzle is selected to automatically load and the player is mounted upon login, there is a significant delay before the chosen music will begin to play.
 - **Issue:** Upon changing zones the default music can be heard for a moment before the chosen music begins to play. 
-    
+
+___    
 ### TODOS
 
 - **Todo:** Investigate alternative methods for music change as packet injection/swap allows the player to hear the default music upon zone change and login, regardless of chosen music. 

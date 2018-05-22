@@ -28,7 +28,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _addon.name     = 'Mount Muzzle'
 _addon.author   = 'Sjshovan (Apogee) sjshovan@gmail.com'
-_addon.version  = '0.9.0'
+_addon.version  = '0.9.1'
 _addon.commands = {'mountmuzzle', 'muzzle', 'mm'}
 
 local _logger = require('logger')
@@ -37,8 +37,8 @@ local _packets = require('packets')
 
 require('helpers')
 
-local muzzled = false
 local mounted = false
+local needs_inject = false
 
 local defaults = {
     muzzle = muzzles.silent.name
@@ -78,13 +78,13 @@ function display_help(table_help)
     end
 end
 
+function getMuzzle()
+    return settings.muzzle
+end
+
 function setMuzzle(muzzle)
     settings.muzzle = muzzle
     settings:save()
-end
-
-function getMuzzle()
-    return settings.muzzle
 end
 
 function muzzleValid(muzzle)
@@ -104,6 +104,10 @@ function resolveCurrentMuzzle()
     return muzzles[current_muzzle]
 end
 
+function requestInject()
+    needs_inject = true
+end
+
 function injectMuzzleMusic()
     windower.packets.inject_incoming(
         packets.inbound.music_change.id,
@@ -114,13 +118,29 @@ function injectMuzzleMusic()
     )
 end
 
-resolveCurrentMuzzle()
+function handleInjectionNeeds() 
+	if needs_inject and playerIsMounted() then
+		injectMuzzleMusic()
+		needs_inject = false;
+    end
+end
+
+function playerIsMounted()
+	local _player = windower.ffxi.get_player()
+	if _player then
+		return mounted or _player.status == player.statuses.mounted
+	end
+	return false 
+end
+
+windower.register_event('login', requestInject)
+windower.register_event('load', requestInject)
+windower.register_event('zone change', requestInject)
 
 windower.register_event('addon command', function(command, ...)
     local command = command:lower()
     local command_args = {...}
 
-    local change = false
     local respond = false
     local response_message = ''
     local success = true
@@ -137,7 +157,7 @@ windower.register_event('addon command', function(command, ...)
             success = false
             response_message = 'Muzzle type not recognized.'
         else
-            change = true
+            needs_inject = true
             setMuzzle(muzzle)
             response_message = 'Updated current muzzle to %s.':format(ucFirst(muzzle):color(colors.secondary))
         end
@@ -148,7 +168,7 @@ windower.register_event('addon command', function(command, ...)
 
     elseif command == 'default' then
         respond = true
-        change = true
+        needs_inject = true
 
         setMuzzle(muzzles.silent.name)
         response_message = 'Updated current muzzle to the default (%s).':format('Silent':color(colors.secondary))
@@ -168,28 +188,26 @@ windower.register_event('addon command', function(command, ...)
         )
     end
 
-    if change and muzzled then
-        injectMuzzleMusic()
-    end
+	handleInjectionNeeds()
 end)
 
 windower.register_event('outgoing chunk', function(id, data)
-    if id == packets.outbound.action.id then
+	if id == packets.outbound.action.id then
         local packet = _packets.parse('outgoing', data)
         if packet.Category == packets.outbound.action.categories.mount then
-            mounted = true;
-        else
-            mounted = false;
-            muzzled = false;
+            mounted = true
+        elseif packet.Category == packets.outbound.action.categories.unmount then
+            mounted = false
         end
     end
 end)
 
-windower.register_event('incoming chunk', function(id, data)
-    if id == packets.inbound.music_change.id then
-        if mounted and not muzzled then
-            injectMuzzleMusic()
-            muzzled = true;
-        end
-    end
+windower.register_event('incoming chunk', function(id, data)   
+	if id == packets.inbound.music_change.id and playerIsMounted() then
+		local packet = _packets.parse('incoming', data)	
+		packet['Song ID'] = resolveCurrentMuzzle().song
+		return _packets.build(packet)
+	end
+    
+    handleInjectionNeeds()
 end)

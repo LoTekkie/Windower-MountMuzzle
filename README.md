@@ -1,5 +1,5 @@
 **Author:** Sjshovan (Apogee)  
-**Version:** v0.9.0
+**Version:** v0.9.1
 
 # Mount Muzzle
 
@@ -72,6 +72,21 @@ ___
 
 ### Change Log
 
+**v0.9.1**
+- **Fix:** Chosen music does not start upon login if mounted. 
+- **Fix:** Chosen music does not persist upon changing zones.
+- **Add:** Known issues added to README.
+- **Add:** TODOS added to README.
+
 **v0.9.0**
 - Initial release
+
+### Known Issues
+
+**v0.9.1**
+- **Issue:** If Mount Muzzle is selected to automatically load and the player is mounted upon login, there is a significant delay before the chosen music will begin to play.
+- **Issue:** Upon changing zones the default music can be heard for a moment before the chosen music begins to play. 
     
+### TODOS
+
+- **Todo:** Investigate alternative methods for music change as packet injection/swap allows the player to hear the default music upon zone change and login, regardless of chosen music. 

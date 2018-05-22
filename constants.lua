@@ -47,6 +47,12 @@ packets = {
     },
 }
 
+player = {
+	statuses = {
+		mounted = 85
+	}
+}
+
 music = {
     songs = {
         silent = 90,

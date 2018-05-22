@@ -119,18 +119,18 @@ function injectMuzzleMusic()
 end
 
 function handleInjectionNeeds() 
-	if needs_inject and playerIsMounted() then
-		injectMuzzleMusic()
-		needs_inject = false;
+    if needs_inject and playerIsMounted() then
+        injectMuzzleMusic()
+        needs_inject = false;
     end
 end
 
 function playerIsMounted()
-	local _player = windower.ffxi.get_player()
-	if _player then
-		return mounted or _player.status == player.statuses.mounted
-	end
-	return false 
+    local _player = windower.ffxi.get_player()
+    if _player then
+        return mounted or _player.status == player.statuses.mounted
+    end
+    return false 
 end
 
 windower.register_event('login', requestInject)
@@ -188,11 +188,11 @@ windower.register_event('addon command', function(command, ...)
         )
     end
 
-	handleInjectionNeeds()
+    handleInjectionNeeds()
 end)
 
 windower.register_event('outgoing chunk', function(id, data)
-	if id == packets.outbound.action.id then
+    if id == packets.outbound.action.id then
         local packet = _packets.parse('outgoing', data)
         if packet.Category == packets.outbound.action.categories.mount then
             mounted = true
@@ -203,11 +203,11 @@ windower.register_event('outgoing chunk', function(id, data)
 end)
 
 windower.register_event('incoming chunk', function(id, data)   
-	if id == packets.inbound.music_change.id and playerIsMounted() then
-		local packet = _packets.parse('incoming', data)	
-		packet['Song ID'] = resolveCurrentMuzzle().song
-		return _packets.build(packet)
-	end
+    if id == packets.inbound.music_change.id and playerIsMounted() then
+        local packet = _packets.parse('incoming', data) 
+        packet['Song ID'] = resolveCurrentMuzzle().song
+        return _packets.build(packet)
+    end
     
     handleInjectionNeeds()
 end)

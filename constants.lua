@@ -48,9 +48,9 @@ packets = {
 }
 
 player = {
-	statuses = {
-		mounted = 85
-	}
+    statuses = {
+        mounted = 85
+    }
 }
 
 music = {

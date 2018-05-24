@@ -103,13 +103,13 @@ ___
 * Please let me know [here.](https://github.com/Ap0gee/MountMuzzle/issues/new)
   
 **Have something to say?**
-* Please contact me by email: <Sjshovan@gmail.com> 
+* Send me some feedback here: <sjshovan@gmail.com>
 
 **Want to stay in the loop with my work?**
 * You can follow me at: <https://twitter.com/Sjshovan>
 
 **Want to show your love and help me make more awesome stuff?**
-* You can fuel my passion here: <https://www.paypal.me/Sjshovan>  
+* You can do so here: <https://www.paypal.me/Sjshovan>  
 
 ___
 ### Change Log
@@ -124,6 +124,7 @@ ___
 - **Add:** Prerequisites added to README.
 - **Add:** Installation added to README. 
 - **Add:** Support added to README.
+- **Add:** License added to README.
 
 **v0.9.1** - 5/22/2018
 - **Fix:** Chosen music does not start upon login if mounted. 

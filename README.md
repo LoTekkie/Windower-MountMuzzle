@@ -45,19 +45,19 @@ ___
 ### Aliases
 The following aliases are available to Mount Muzzle commands:    
 
-**mountmuzzle:** muzzle | mm   
-**list:** l    
-**set:** s   
+**mountmuzzle:** muzzle | mm  
+**list:** l     
+**set:** s  
 **get:** g  
-**default:** d
-**unload:** u
-**reload:** r
-**about:** a
-**silent:** s    
-**mount:** m 
-**chocobo:** c 
-**zone:** z     
-**help:** h   
+**default:** d  
+**unload:** u  
+**reload:** r  
+**about:** a  
+**silent:** s  
+**mount:** m   
+**chocobo:** c  
+**zone:** z    
+**help:** h  
  
  ___
 ### Usage
@@ -166,7 +166,7 @@ ___
 **v0.9.4** - 9/06/2018
 - **Fix:** Music wouldn't change if addon loaded while on mount.
 - **Fix:** Music wouldn't change if addon unloaded while on mount.
-- **Fix:** Muzzle type `Silent` was playing incorrect track.
+- **Fix:** Muzzle type 'Silent' was playing incorrect track.
 - **Update:** Licences now display correct addon name.
 - **Update:** Muzzle type 'Normal' changed to 'Mount'.
 - **Update:** Muzzle type 'Choco' changed to 'Chocobo'.
@@ -175,7 +175,7 @@ ___
 - **Update:** README Installation updated.
 - **Update:** README Table of Contents updated.
 - **Update:** README Known Issues updated.
-- **Update:** README TODOs updated.
+- **Update:** README TODOS updated.
 - **Add:** New commands added (about, unload).
 - **Add:** Shorthand aliases added to all commands.
 - **Add:** Aliases added to README.
@@ -192,7 +192,7 @@ ___
 - **Fix:** Zone music gets silenced if player enters reive on mount with zone muzzle selected.
 - **Fix:** Player reaches error if no arguments are given upon invoking the addon.  
 - **Update:** Convert tab characters to spaces, simplify code.  
-- **Update:** README Usage instructions updated.
+- **Update:** README Usage Instructions updated.
 - **Update:** README Known Issues updated.
 - **Add:** Table of Contents added to README.
 - **Add:** Prerequisites added to README.
@@ -203,7 +203,7 @@ ___
 **v0.9.1** - 5/22/2018
 - **Fix:** Chosen music does not start upon login if mounted. 
 - **Fix:** Chosen music does not persist upon changing zones.
-- **Add:** Known issues added to README.
+- **Add:** Known Issues added to README.
 - **Add:** TODOS added to README.
 
 **v0.9.0** - 5/21/2018

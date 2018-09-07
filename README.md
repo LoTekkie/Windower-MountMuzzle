@@ -217,10 +217,10 @@ ___
 - **Issue:** Unable to correctly set mount music to original if Mount Muzzle is unloaded while mounted. 
 
 ___    
-### TODOS
+### TODOs
 
-- **Todo:** Investigate alternative methods for music change as packet injection/swap allows the player to hear the default music upon zone change and login, regardless of chosen music.
-- **Todo:** Investigate methods for determining which mount type the player is on when loading/unloading Mount Muzzle.
+- **TODO:** Investigate alternative methods for music change as packet injection/swap allows the player to hear the default music upon zone change and login, regardless of chosen music.
+- **TODO:** Investigate methods for determining which mount type the player is on when loading/unloading Mount Muzzle.
 ___
 
 ### License
